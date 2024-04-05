@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSA Encryption Demo</title>
+    <script src="/index.js"></script>
+    <link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div class="section">
+        <h2>Generate Keypair</h2>
+        <button onclick="onKeyGen()">Generate Keypair</button><br><br>
+        <label>Public Key:</label><br>
+        <textarea id="generatedPublicKey" rows="4" cols="50" readonly></textarea><br><br>
+        <label>Private Key:</label><br>
+        <textarea id="generatedPrivateKey" rows="4" cols="50" readonly></textarea>
+    </div>
+
+    <div class="section">
+        <h2>Encrypt Data</h2>
+        <button onclick="onEncrypt()">Encrypt</button><br><br>
+        <label for="publicKey">Public Key:</label><br>
+        <textarea id="publicKey" rows="4" cols="50"></textarea><br><br>
+        <label for="encryptData">Data to Encrypt:</label><br>
+        <textarea id="encryptData" rows="4" cols="50"></textarea><br><br>
+        <label for="encryptResult">Encrypted Result:</label><br>
+        <textarea id="encryptResult" rows="4" cols="50" readonly></textarea>
+    </div>
+
+    <div class="section">
+        <h2>Decrypt Data</h2>
+        <button onclick="onDecrypt()">Decrypt</button><br><br>
+        <label for="privateKey">Private Key:</label><br>
+        <textarea id="privateKey" rows="4" cols="50"></textarea><br><br>
+        <label for="decryptData">Data to Decrypt:</label><br>
+        <textarea id="decryptData" rows="4" cols="50"></textarea><br><br>
+        <label for="decryptResult">Decrypted Result:</label><br>
+        <textarea id="decryptResult" rows="4" cols="50" readonly></textarea>
+    </div>
+</body>
+</html>
