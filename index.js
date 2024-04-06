@@ -95,13 +95,4 @@ async function onKeyGen() {
     const keypair = await generateKeypair();
     document.getElementById("generatedPrivateKey").value = keypair.privateKey;
     document.getElementById("generatedPublicKey").value = keypair.publicKey;
-    localStorage.setItem("privateKey", keypair.privateKey);
-    localStorage.setItem("publicKey", keypair.publicKey);
 }
-
-const privateKey = localStorage.getItem("privateKey");
-const publicKey = localStorage.getItem("publicKey");
-
-document.getElementById("generatedPrivateKey").value = privateKey !== null ? privateKey : "";
-document.getElementById("generatedPublicKey").value = publicKey !== null ? publicKey : "";
-document.getElementById("privateKey").value = privateKey !== null ? privateKey : "";
