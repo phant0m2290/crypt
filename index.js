@@ -74,7 +74,7 @@ async function onEncrypt() {
         const publicKey = document.getElementById("publicKey").value;
         const data = document.getElementById("encryptData").value;
         const encrypted = await encryptData(data, publicKey);
-        document.getElementById("encryptResult").textContent = encrypted;
+        document.getElementById("encryptResult").value = encrypted;
     } catch (err) {
         alert("Invalid public key");
     }
@@ -85,7 +85,7 @@ async function onDecrypt() {
         const privateKey = document.getElementById("privateKey").value;
         const data = document.getElementById("decryptData").value;
         const decrypted = await decryptData(data, privateKey);
-        document.getElementById("decryptResult").textContent = decrypted;
+        document.getElementById("decryptResult").value = decrypted;
     } catch (err) {
         alert("Invalid or wrong private key");
     }
@@ -93,6 +93,15 @@ async function onDecrypt() {
 
 async function onKeyGen() {
     const keypair = await generateKeypair();
-    document.getElementById("generatedPrivateKey").textContent = keypair.privateKey;
-    document.getElementById("generatedPublicKey").textContent = keypair.publicKey;
+    document.getElementById("generatedPrivateKey").value = keypair.privateKey;
+    document.getElementById("generatedPublicKey").value = keypair.publicKey;
+    localStorage.setItem("privateKey", keypair.privateKey);
+    localStorage.setItem("publicKey", keypair.publicKey);
 }
+
+const privateKey = localStorage.getItem("privateKey");
+const publicKey = localStorage.getItem("publicKey");
+
+document.getElementById("generatedPrivateKey").value = privateKey !== null ? privateKey : "";
+document.getElementById("generatedPublicKey").value = publicKey !== null ? publicKey : "";
+document.getElementById("privateKey").value = privateKey !== null ? privateKey : "";
